@@ -1,9 +1,9 @@
 		           EXPORT Ana_Program
 delay_ms           EQU 0xE10 ;10hz 3600 psc=36
-GPIOA_IDR	         EQU 0x40010808
+GPIOA_IDR	       EQU 0x40010808
 
-GPIOA_CRL	         EQU 0x40010800
-GPIOA_ODR	         EQU 0x4001080C
+GPIOA_CRL	       EQU 0x40010800
+GPIOA_ODR	       EQU 0x4001080C
 RCC_APB2ENR        EQU 0x40021000
 RCC_APB1ENR        EQU 0x40021000
 TIM2_ARR           EQU 0x40000000
@@ -63,7 +63,7 @@ while              MOV      r0,#0x40000000
                    AND      r0,r0,#0x01
                    CMP      r0,#0x00
                    BEQ      while
-dongu              NOP                       
+loop              NOP                       
     ;         while(1) 
    ;          GPIOA->ODR ^=0x0008;//toggle pa3 
                    BL       delay
@@ -74,6 +74,6 @@ dongu              NOP
                    STR      r0,[r1,#0x00] 
                    ADDS     R7,R7,#1
 				   BL       delay
-			       B        dongu
+			       B        loop
 				   ALIGN
 	               END
