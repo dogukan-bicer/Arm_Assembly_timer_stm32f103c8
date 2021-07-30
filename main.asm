@@ -73,7 +73,7 @@ loop              NOP
                    LDR      r1,=GPIOA_ODR  
                    STR      r0,[r1,#0x00] 
                    ADDS     R7,R7,#1
-				   BL       delay
-			       B        loop
-				   ALIGN
-	               END
+		   BL       delay
+	           B        loop
+		   ALIGN
+	           END
